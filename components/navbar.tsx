@@ -1,3 +1,4 @@
+"use client"
 import {
 	Navbar as NextUINavbar,
 	NavbarContent,
@@ -20,14 +21,15 @@ import clsx from "clsx";
 
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
-	TwitterIcon,
-	GithubIcon,
-	DiscordIcon,
+	FacebookIcon,
+	YoutubeIcon,
+	InstagramIcon,
 	HeartFilledIcon,
 	SearchIcon,
 } from "@/components/icons";
 
 import { Logo } from "@/components/icons";
+import  CustomDropdown  from "@/components/customDrop";
 
 export const Navbar = () => {
 	const searchInput = (
@@ -57,7 +59,7 @@ export const Navbar = () => {
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
 						<Logo />
-						<p className="font-bold text-inherit">ACME</p>
+						<p className="font-bold text-inherit">TRAVEL</p>
 					</NextLink>
 				</NavbarBrand>
 				<ul className="hidden lg:flex gap-4 justify-start ml-2">
@@ -83,14 +85,14 @@ export const Navbar = () => {
 				justify="end"
 			>
 				<NavbarItem className="hidden sm:flex gap-2">
-					<Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
-						<TwitterIcon className="text-default-500" />
+					<Link isExternal href={siteConfig.links.facebook} aria-label="Twitter">
+						<FacebookIcon className="text-default-500" />
 					</Link>
-					<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
-						<DiscordIcon className="text-default-500" />
+					<Link isExternal href={siteConfig.links.instagram} aria-label="Discord">
+						<InstagramIcon className="text-default-500" />
 					</Link>
-					<Link isExternal href={siteConfig.links.github} aria-label="Github">
-						<GithubIcon className="text-default-500" />
+					<Link isExternal href={siteConfig.links.youtube} aria-label="Github">
+						<YoutubeIcon className="text-default-500" />
 					</Link>
 					<ThemeSwitch />
 				</NavbarItem>
@@ -100,18 +102,20 @@ export const Navbar = () => {
             isExternal
 						as={Link}
 						className="text-sm font-normal text-default-600 bg-default-100"
-						href={siteConfig.links.sponsor}
 						startContent={<HeartFilledIcon className="text-danger" />}
 						variant="flat"
 					>
 						Sponsor
 					</Button>
 				</NavbarItem>
+				<NavbarItem>
+					<CustomDropdown />
+				</NavbarItem>
 			</NavbarContent>
 
 			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-				<Link isExternal href={siteConfig.links.github} aria-label="Github">
-					<GithubIcon className="text-default-500" />
+				<Link isExternal href={siteConfig.links.youtube} aria-label="Github">
+					<YoutubeIcon className="text-default-500" />
 				</Link>
 				<ThemeSwitch />
 				<NavbarMenuToggle />
